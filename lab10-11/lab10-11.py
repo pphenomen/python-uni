@@ -79,16 +79,6 @@ def index():
     cursor.execute('SELECT * FROM artists')
     artists = cursor.fetchall()
 
-    # Запрос для получения самого длинного трека для каждого альбома
-    cursor.execute('''
-        SELECT albums.title AS album_title, tracks.title AS track_title, MAX(tracks.duration) AS max_duration
-        FROM tracks
-        JOIN albums ON tracks.album_id = albums.id
-        GROUP BY albums.id
-        ORDER BY max_duration DESC;
-    ''')
-    longest_tracks = cursor.fetchall()  # Убедитесь, что это результат запроса, а не функция
-
     return render_template_string('''
     <html>
     <body>
