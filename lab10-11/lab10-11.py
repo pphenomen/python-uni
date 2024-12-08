@@ -103,7 +103,7 @@ def index():
         
         <h2><a href="/albums">Посмотреть альбомы</a></h2>
         <h2><a href="/tracks">Посмотреть треки</a></h2>
-        <h2><a href="/longest_tracks">Посмотреть треки</a></h2>
+        <h2><a href="/longest_tracks">Посмотреть самые длинные треки в каждом альбоме</a></h2>
     
     </body>
     </html>
@@ -151,7 +151,7 @@ def show_albums():
                       JOIN artists ON albums.artist_id = artists.id''')
     rows = cursor.fetchall()
     
-    result = "<h1>Albums</h1><ul>"
+    result = "<h1>Альбомы</h1><ul>"
     for row in rows:
         result += f"<li>Title: {row['title']}, Artist: {row['name']}, Year: {row['year']}</li>"
     result += "</ul>"
@@ -166,7 +166,7 @@ def show_tracks():
                       JOIN albums ON tracks.album_id = albums.id''')
     rows = cursor.fetchall()
     
-    result = "<h1>Tracks</h1><ul>"
+    result = "<h1>Треки</h1><ul>"
     for row in rows:
         result += f"<li>Title: {row['title']}, Album: {row['album_title']}, Duration: {row['duration']} seconds</li>"
     result += "</ul>"
