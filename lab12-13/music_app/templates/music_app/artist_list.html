@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Artists</title>
+</head>
+<body>
+    <h1>Artists</h1>
+    <ul>
+        {% for artist in artists %}
+            <li>
+                <a href="{{ artist.id }}/">{{ artist.name }}</a> - {{ artist.genre }}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="admin/music_app/artist/add/">Add Artist</a>
+</body>
+</html>
